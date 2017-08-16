@@ -1,0 +1,22 @@
+{
+  "name": "X-Ray for Oracle APEX",
+  "version": "0.1",
+  "description": "See what's inside an Oracle APEX application while you are running it.",
+  "icons": { "128": "on.png" },
+  "background": { "scripts": ["background.js"] },
+  "browser_action": {
+      "default_icon": "icon.png"
+  }, 
+  "content_scripts": [
+   {
+    "matches": ["http://*/*f?p=4000:*", "https://*/*f?p=4000:*"],
+    "js": ["contentscript.js"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "manifest_version": 2,
+  "content_security_policy": "default-src 'none'; style-src 'self'; script-src 'self';"
+}
